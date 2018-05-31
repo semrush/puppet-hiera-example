@@ -13,7 +13,7 @@ profiles::webserver::nginx::servers:
 profiles::webserver::nginx::locations:
   'kicker-root':
     location: '/' 
-    server: ‘kicker.semrush.com'
+    server: 'kicker.semrush.com'
     proxy: 'http://kicker-backend.semrush.com:8080'
     proxy_set_header:
       - 'X-Real-IP $remote_addr'

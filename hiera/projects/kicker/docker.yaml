@@ -1,0 +1,18 @@
+---
+classes:
+  - profiles::docker
+
+profiles::docker::params:
+  version: '17.05.0~ce-0~debian-stretch'
+
+packages:
+  'python3-pip':
+    provider: apt
+  'Fabric3':
+    provider: pip3
+    ensure:   1.12.post1
+
+user_management::users:
+  deploy:
+    groups:
+      - docker

@@ -1,0 +1,19 @@
+---
+:hierarchy:
+ - "nodes/%{::fqdn}"
+ - "teams/%{::team}_team/nodes/%{::fqdn}"
+ - "teams/%{::team}_team/projects/%{::project}/tiers/%{::tier}"
+ - "teams/%{::team}_team/projects/%{::project}/%{::role}"
+ - "teams/%{::team}_team/projects/%{::project}"
+ - "teams/%{::team}_team/roles/%{::role}"
+ - "teams/%{::team}_team/%{::team}"
+ - "projects/%{::project}/tiers/%{::tier}/%{::role}"
+ - "projects/%{::project}/tiers/%{::tier}"
+ - "projects/%{::project}/%{::role}"
+ - "projects/%{::project}"
+ - "tiers/%{::tier}"
+ - "virtual/%{::virtual}"
+ - "os/%{::operatingsystem}/%{::operatingsystemmajrelease}"
+ - "os/%{::operatingsystem}"
+ - users
+ - common

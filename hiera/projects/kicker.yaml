@@ -1,0 +1,18 @@
+---
+classes:
+  - apt::debian::semrush
+
+files:
+  "/srv/data":
+    ensure: 'directory'
+    owner:  'deploy'
+    group:  'www-data'
+    mode:   '0755'
+  '/srv/data/shared_temp':
+    ensure: 'directory'
+    owner:  'deploy'
+    group:  'www-data'
+    mode:   '0775'
+
+user_management::present:
+  - deploy

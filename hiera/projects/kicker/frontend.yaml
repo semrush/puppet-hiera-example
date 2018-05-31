@@ -1,0 +1,24 @@
+---
+classes:
+  - profiles::webserver::nginx
+
+
+profiles::webserver::nginx::servers:
+  'kicker.semrush.com':
+    use_default_location: false
+    listen_port: 80
+    server_name:
+      - 'kicker.semrush.com'
+
+profiles::webserver::nginx::locations:
+  'kicker-root':
+    location: '/' 
+    server: ‘kicker.semrush.com'
+    proxy: 'http://kicker-backend.semrush.com:8080'
+    proxy_set_header:
+      - 'X-Real-IP $remote_addr'
+      - 'X-Forwarded-for $remote_addr'
+      - 'Host kicker.semrush.com'
+    location_cfg_append:
+      'proxy_next_upstream': 'error timeout invalid_header http_500 http_502 http_503 http_504'
+    proxy_connect_timeout: '5'

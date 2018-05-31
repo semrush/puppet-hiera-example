@@ -1,0 +1,28 @@
+---
+classes:
+  - profiles::db::postgresql
+
+profiles::db::postgresql::globals:
+  manage_package_repo: true
+  version: '10'
+profiles::db::postgresql::db_configs:
+  'listen_addresses':
+    value: '*' 
+
+profiles::db::postgresql::databases:
+  kicker: {}
+
+profiles::db::postgresql::hba_rules:
+  'local connect to kicker':
+    type: 'local'
+    database: 'kicker'
+    user: 'kicker'
+    auth_method: 'md5'
+    order: '001'
+  'keywordtool':
+    type: 'host'
+    database: 'kicker'
+    user: 'kicker'
+    auth_method: 'md5'
+    address: '0.0.0.0/0'
+    order: '002'

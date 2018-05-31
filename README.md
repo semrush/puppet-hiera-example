@@ -28,3 +28,6 @@ The example shows how:
 - To make configuration code reusable
 - To create an architecture of a project
 - To use hiera for configuring servers
+
+### More info
+Here is an [article](https://habr.com/company/semrush/blog/412587/) on habr.com (in Russian) that fully describes this hierarchy structure
